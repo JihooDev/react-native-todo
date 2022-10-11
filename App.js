@@ -28,6 +28,7 @@ import {
 import TodoList from './component/TodoList';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import CoinMarket from './component/CoinMarket';
+import Detail from './component/Detail';
 
 
 const App = () => {
@@ -37,6 +38,7 @@ const App = () => {
       <Stack.Navigator>
         <Stack.Screen name="메인" component={TodoList} />
         <Stack.Screen name="CoinMarket" component={CoinMarket} />
+        <Stack.Screen name="detail" component={Detail} />
       </Stack.Navigator>
     </NavigationContainer>
   );
