@@ -7,6 +7,7 @@
  */
 
 import React, { useState } from 'react';
+import { NavigationContainer } from '@react-navigation/native';
 import {
   SafeAreaView,
   ScrollView,
@@ -25,22 +26,19 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 import TodoList from './component/TodoList';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import CoinMarket from './component/CoinMarket';
 
 
 const App = () => {
-
-  const [data, setData] = useState([
-    {
-    id: 0,
-    content: "1번 일기",
-    }
-  ])
-
-
+  const Stack = createNativeStackNavigator();
   return (
-    <SafeAreaView>
-      <TodoList data={data} setData={setData} />
-    </SafeAreaView>
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="메인" component={TodoList} />
+        <Stack.Screen name="CoinMarket" component={CoinMarket} />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
 };
 

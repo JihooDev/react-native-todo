@@ -4,7 +4,10 @@ import { SafeAreaView, Text, StyleSheet, TextInput, View, Button, Touchable, Tou
 
 
 
-const TodoList = ({ data, setData }) => {
+const TodoList = ({ navigation }) => {
+    const [data, setData] = useState([
+    ])
+
     const cntId = useRef(1);
     const [inputData, setInputData] = useState("");
     const addList = () => {
@@ -33,7 +36,7 @@ const TodoList = ({ data, setData }) => {
                     autoCapitalize={'none'}
                     autoComplete={'none'}
                     placeholder={"일기를 작성하세요"}
-                    />
+                />
                 <TouchableOpacity style={styles.btnItem} onPress={addList}>
                     <Text style={{ color: "#fff" }}>작성하기</Text>
                 </TouchableOpacity>
@@ -41,6 +44,9 @@ const TodoList = ({ data, setData }) => {
                     <Text style={{ color: "#fff" }}>전부지우기</Text>
                 </TouchableOpacity>
             </View>
+            <TouchableOpacity style={styles.navigateBtn} onPress={()=>{navigation.navigate("CoinMarket")}}>
+                <Text style={styles.navigateText}>코인마켓</Text>
+            </TouchableOpacity>
             <ScrollView>
                 <View style={styles.itemList}>
                     <FlatList data={data} renderItem={({ item }) => (<TodoItem item={item} setData={setData} data={data} />)} keyExtractor={item => item.id}></FlatList>
@@ -64,12 +70,25 @@ const TodoItem = ({ item, data, setData }) => {
 }
 
 const styles = StyleSheet.create({
+    navigateBtn: {
+        position: "absolute",
+        bottom: 60,
+        right : 20,
+        backgroundColor : "blue",
+        borderRadius : 10,
+        zIndex : 999
+    },
+    navigateText : {
+        padding : 15,
+        color : "#fff",
+    },  
     itemList: {
     },
     flex: {
         flexDirection: "row",
         justifyContent: "center",
-        alignItems: "center"
+        alignItems: "center",
+        position: "relative"
     },
     content: {
         fontSize: 20,

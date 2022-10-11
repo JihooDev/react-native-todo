@@ -5,6 +5,9 @@
       location = "group:ProjectName.xcodeproj">
    </FileRef>
    <FileRef
+      location = "group:/Users/teammapa/Desktop/pratice/react-native-todo/ios/Pods/Pods.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:Pods/Pods.xcodeproj">
    </FileRef>
 </Workspace>
